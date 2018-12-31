@@ -161,7 +161,8 @@ int main(int argc, char** argv)
     for(const auto& obsoletes : re.obsoletes) {
       cout << "\tIt obsoletes "<<obsoletes<<endl;
 
-      if(auto iter = nameidx.find(obsoletes); iter != nameidx.end()) {
+      auto iter = nameidx.find(obsoletes);
+      if(iter != nameidx.end()) {
         if(!dedup.count(iter->name)) {
           statusPageCount[iter->currentStatus] -= iter->pages;
           statusPageCount["OBSOLETED"] += iter->pages;
