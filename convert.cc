@@ -53,7 +53,7 @@ index_t g_index;
 
 int main(int argc, char** argv)
 {
-  ifstream dnsrfcsfile("dns-rfc-annotations.json");
+  ifstream dnsrfcsfile("rfc-annotations.json");
   nlohmann::json dnsrfcsJS;
   dnsrfcsfile >> dnsrfcsJS;
 
@@ -62,7 +62,7 @@ int main(int argc, char** argv)
     for(const auto& s : iter.value()["sections"])
       dnsrfcs[boost::to_upper_copy(iter.key())].insert(s.get<string>());
   }
-  cout<<"Have "<<dnsrfcs.size()<<" RFCs whitllisted for DNS"<<endl;
+  cout<<"Have "<<dnsrfcs.size()<<" RFCs whitelisted for IMAP"<<endl;
   
   // Create empty property tree object
   pt::ptree tree;
@@ -79,7 +79,7 @@ int main(int argc, char** argv)
       re.name = v.second.get_child("doc-id").data();
 
       if(!dnsrfcs.count(re.name)) {
-        //        cout << "Ignoring "<<re.name<<", not a DNS rfc"<<endl;
+        //        cout << "Ignoring "<<re.name<<", not a IMAP rfc"<<endl;
         continue;
       }
       else {
@@ -98,7 +98,7 @@ int main(int argc, char** argv)
         for(const auto obs : v.second.get_child("obsoleted-by")) {
           re.obsoletedBy.insert(obs.second.data());
           if(!dnsrfcs.count(obs.second.data())) {
-            cerr<<re.name<<" " <<re.title<<" is obsoleted by "<< obs.second.data()<< " which itself is not a DNS RFC!" <<endl;
+            cerr<<re.name<<" " <<re.title<<" is obsoleted by "<< obs.second.data()<< " which itself is not a IMAP RFC!" <<endl;
           }
         }
       }
@@ -106,7 +106,7 @@ int main(int argc, char** argv)
         for(const auto obs : v.second.get_child("obsoletes")) {
           re.obsoletes.insert(obs.second.data());
           if(!dnsrfcs.count(obs.second.data())) {
-            cerr<<re.name<<" " <<re.title<<" obsoletes "<< obs.second.data()<< " which itself is not a DNS RFC!" <<endl;
+            cerr<<re.name<<" " <<re.title<<" obsoletes "<< obs.second.data()<< " which itself is not a IMAP RFC!" <<endl;
           }
         }
       }
@@ -114,7 +114,7 @@ int main(int argc, char** argv)
       if(v.second.count("updated-by")) {
         for(const auto obs : v.second.get_child("updated-by")) {
           if(!dnsrfcs.count(obs.second.data())) {
-            cerr<<re.name<<" " <<re.title<<" is updated by "<< obs.second.data()<< " which itself is not a DNS RFC!" <<endl;
+            cerr<<re.name<<" " <<re.title<<" is updated by "<< obs.second.data()<< " which itself is not a IMAP RFC!" <<endl;
           }
         }
       }
@@ -136,7 +136,7 @@ int main(int argc, char** argv)
       g_index.insert(re);
     }
   }
-  cout<<"Have "<<g_index.size()<<" DNS RFCs"<<endl;
+  cout<<"Have "<<g_index.size()<<" IMAP RFCs"<<endl;
   std::map<string, int> statusPageCount;
   statusPageCount["OBSOLETED"];
   for(const auto& re : g_index) {
@@ -206,7 +206,7 @@ int main(int argc, char** argv)
     allRFCs[re.name]=rfc;
   }
 
-  ofstream newJSON("all-dns-rfcs.json");
+  ofstream newJSON("all-rfcs.json");
   
   newJSON << std::setw(4) << allRFCs << endl;
 

@@ -10,7 +10,7 @@ set output 'plot.svg'
 
 set xlabel 'Year'
 set ylabel 'Pages'
-set title 'The inexorable growth of DNS'
+set title 'The inexorable growth of Mail'
 
 plot         'plot' using 1:($2+$3+$4+$5+$6+$7+$8+$9) with filledcurves x1 title 'Unknown',  \
              'plot' using 1:($2+$3+$4+$5+$6+$7+$8) with filledcurves x1 title 'Proposed Standard',  \
