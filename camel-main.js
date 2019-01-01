@@ -39,6 +39,15 @@ function tabulate(data, columns) {
             switch(d.column) {
             case "docID":
                 return '<span id="link_'+d.value+'">'+d.value+'</span>';
+            case "obsoleted":
+		if (Array.isArray(d.value)) {
+                    var arr = [];
+                    for (var a in d.value) {
+                        arr.push('<a href="#link_'+d.value[a]+'">'+d.value[a]+'</a>');
+                    }
+                    return arr.join(', ');
+                }
+                return '';
             case "title":
                 return '<a href="'+d.url+'">'+d.value+'</a>';
             default:
@@ -165,7 +174,6 @@ d3.json("all-rfcs.json", {cache: "force-cache"}).then(function(js) {
             o.currentStatus = js[a].track;
             if(o.currentStatus == "STANDARDS TRACK")
                 o.currentStatus = "PROPOSED STANDARD";
-            o.obsoleted=0;
             o.draft=1;
             o.url = 'https://tools.ietf.org/id/'+js[a].name;
             o.sections=js[a].sections.join(" ");
