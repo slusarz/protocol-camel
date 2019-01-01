@@ -1,8 +1,8 @@
 [
-{"name": "draft-ietf-extra-imap-fetch-preview-00", "title": "IMAP4 Extension: Message Preview Generation", "pages": 11, "track": "STANDARDS TRACK"},
-{"name": "draft-ietf-extra-imap-replace-03", "title": "IMAP REPLACE Extension", "pages": 11, "track": "STANDARDS TRACK"},
-{"name": "draft-ietf-extra-imap-savedate-01", "title": "Internet Message Access Protocol (IMAP) - SAVEDATE Extension", "pages": 6, "track": "STANDARDS TRACK"},
-{"name": "draft-ietf-extra-imap4rev2-02", "title": "INTERNET MESSAGE ACCESS PROTOCOL - VERSION 4rev2", "pages": 127, "track": "STANDARDS TRACK"},
-{"name": "draft-ietf-extra-sieve-fcc-08", "title": "Sieve Extension: File Carbon Copy (Fcc)", "pages": 14, "track": "STANDARDS TRACK"},
-{"name": "draft-ietf-extra-sieve-special-use-04", "title": "Sieve Email Filtering: Delivering to Special-Use Mailboxes", "pages": 11, "track": "STANDARDS TRACK"}
+{"name": "draft-ietf-extra-imap-fetch-preview-00", "title": "IMAP4 Extension: Message Preview Generation", "pages": 11, "track": "STANDARDS TRACK", "sections": ["imap"]},
+{"name": "draft-ietf-extra-imap-replace-03", "title": "IMAP REPLACE Extension", "pages": 11, "track": "STANDARDS TRACK", "sections": ["imap"]},
+{"name": "draft-ietf-extra-imap-savedate-01", "title": "Internet Message Access Protocol (IMAP) - SAVEDATE Extension", "pages": 6, "track": "STANDARDS TRACK", "sections": ["imap"]},
+{"name": "draft-ietf-extra-imap4rev2-02", "title": "INTERNET MESSAGE ACCESS PROTOCOL - VERSION 4rev2", "pages": 127, "track": "STANDARDS TRACK", "sections": ["imap"]},
+{"name": "draft-ietf-extra-sieve-fcc-08", "title": "Sieve Extension: File Carbon Copy (Fcc)", "pages": 14, "track": "STANDARDS TRACK", "sections": ["imap"]},
+{"name": "draft-ietf-extra-sieve-special-use-04", "title": "Sieve Email Filtering: Delivering to Special-Use Mailboxes", "pages": 11, "track": "STANDARDS TRACK", "sections": ["imap"]}
 ]

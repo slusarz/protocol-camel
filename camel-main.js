@@ -164,14 +164,14 @@ d3.json("all-rfcs.json", {cache: "force-cache"}).then(function(js) {
             o.obsoleted=0;
             o.draft=1;
             o.url = 'https://tools.ietf.org/id/'+js[a].name;
-            o.sections="core";
-            o.sectionsArray=["core"];
+            o.sections=js[a].sections.join(" ");
+            o.sectionsArray=js[a].sections;
             dnsrfcentries[o.docID]=o;
         }
-
-        createTable();
-        updateTable();
     });
+
+    createTable();
+    updateTable();
 });
 
 
