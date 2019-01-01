@@ -202,7 +202,11 @@ int main(int argc, char** argv)
     rfc["title"]=re.title;
     rfc["pages"]=re.pages;
     rfc["currentStatus"]=re.currentStatus;
-    rfc["obsoleted"]= re.obsoletedBy.empty() ? 0 : 1;
+    if (re.obsoletedBy.empty()) {
+      rfc["obsoleted"]= "";
+    } else {
+      rfc["obsoleted"]= re.obsoletedBy;
+    }
     rfc["draft"]=0;
     allRFCs[re.name]=rfc;
   }
