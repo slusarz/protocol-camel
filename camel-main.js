@@ -36,10 +36,14 @@ function tabulate(data, columns) {
 	.enter()
 	.append('td')
 	.html(function (d) {
-            if(d.column != "title")
-                return d.value;
-            else
+            switch(d.column) {
+            case "docID":
+                return '<span id="link_'+d.value+'">'+d.value+'</span>';
+            case "title":
                 return '<a href="'+d.url+'">'+d.value+'</a>';
+            default:
+                return d.value;
+            }
         });
 
     return table;
